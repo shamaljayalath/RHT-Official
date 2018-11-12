@@ -1,0 +1,8 @@
+---
+-   name: Enable Use of Strict Mode Checking
+    lineinfile:
+        create: true
+        dest: /etc/ssh/sshd_config
+        regexp: (?i)^#?strictmodes
+        line: StrictModes yes
+        validate: sshd -t -f %s
